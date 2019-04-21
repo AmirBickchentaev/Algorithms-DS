@@ -1,0 +1,5 @@
+﻿  RegularExpressions.cpp
+c:\users\амир\source\repos\regularexpressions\regularexpressions\regularexpressions.cpp(43): warning C4129: D: неизвестная escape-последовательность
+c:\users\амир\source\repos\regularexpressions\regularexpressions\regularexpressions.cpp(62): warning C4129: .: неизвестная escape-последовательность
+c:\users\амир\source\repos\regularexpressions\regularexpressions\regularexpressions.cpp(86): warning C4129: .: неизвестная escape-последовательность
+  RegularExpressions.vcxproj -> C:\Users\Амир\source\repos\RegularExpressions\Debug\RegularExpressions.exe
