@@ -14,11 +14,14 @@ namespace ZombieDefence
 {
     public partial class Form2 : Form
     {
-        SoundPlayer start = new SoundPlayer(Directory.GetCurrentDirectory() + @"\startMIs.wav");
         public Form2()
         {
-            start.Play();
+            System.Windows.Media.MediaPlayer backgroundMusic;
+            backgroundMusic = new System.Windows.Media.MediaPlayer();
+            backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\startMIs.wav"));
+            backgroundMusic.Play();
             InitializeComponent();
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -29,7 +32,9 @@ namespace ZombieDefence
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
             Form1 form = new Form1();
+           
             this.Hide();
             form.Show();
         }
@@ -47,6 +52,11 @@ namespace ZombieDefence
                 this.Hide();
                 form.Show();
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

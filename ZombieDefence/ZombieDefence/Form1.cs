@@ -24,18 +24,15 @@ namespace ZombieDefence
         int score = 0;
 
 
-        SoundPlayer start = new SoundPlayer(Directory.GetCurrentDirectory() + @"\Harppen.wav");
-        SoundPlayer shoot = new SoundPlayer(Directory.GetCurrentDirectory() +  @"\shot.wav");
-        SoundPlayer mandie = new SoundPlayer(Directory.GetCurrentDirectory() + @"\mandie.wav");
-        SoundPlayer die = new SoundPlayer(Directory.GetCurrentDirectory() + @"\die.wav");
-
-
 
         public Form1()
         {
             InitializeComponent();
 
-            start.Play();
+            System.Windows.Media.MediaPlayer backgroundMusic;
+            backgroundMusic = new System.Windows.Media.MediaPlayer();
+            backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\Harppen.wav"));
+            backgroundMusic.Play();
             enemy1.Top = -600;
             enemy2.Top = -1000;
             enemy3.Top = -1300;
@@ -75,7 +72,7 @@ namespace ZombieDefence
                 else
                 {
                     player.Image = ZombieDefence.Properties.Resources.left;
-                    moveLeft = -5;
+                    moveLeft = -6;
                 }
             }
              if(e.KeyCode == Keys.Right)
@@ -99,7 +96,10 @@ namespace ZombieDefence
 
                 if (shooting == false)
                 {
-                    shoot.Play();
+                    System.Windows.Media.MediaPlayer backgroundMusic;
+                    backgroundMusic = new System.Windows.Media.MediaPlayer();
+                    backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\shot.wav"));
+                    backgroundMusic.Play();
                     bulletSpeed = 8;
                     bullet.Left = player.Left + 50;
                     bullet.Top = player.Top;
@@ -119,13 +119,17 @@ namespace ZombieDefence
             if (enemy1.Top == 660 || enemy2.Top == 660 || enemy3.Top == 660)
             {
                 gameOver();
+
             }
             enemyHit();
            
 
             if (bullet.Bounds.IntersectsWith(enemy1.Bounds))
             {
-                die.Play();
+                System.Windows.Media.MediaPlayer backgroundMusic;
+                backgroundMusic = new System.Windows.Media.MediaPlayer();
+                backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\die.wav"));
+                backgroundMusic.Play();
                 score += 10;
                 enemy1.Top = -500;
                 int ranP = rnd.Next(1, 300);
@@ -137,7 +141,10 @@ namespace ZombieDefence
             }
             else if(bullet.Bounds.IntersectsWith(enemy2.Bounds))
  {
-                die.Play();
+                System.Windows.Media.MediaPlayer backgroundMusic;
+                backgroundMusic = new System.Windows.Media.MediaPlayer();
+                backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\die.wav"));
+                backgroundMusic.Play();
                 score += 10;
                 enemy2.Top = -900;
                 int ranP = rnd.Next(1, 400);
@@ -149,7 +156,10 @@ namespace ZombieDefence
             }
             else if(bullet.Bounds.IntersectsWith(enemy3.Bounds))
  {
-                die.Play();
+                System.Windows.Media.MediaPlayer backgroundMusic;
+                backgroundMusic = new System.Windows.Media.MediaPlayer();
+                backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\die.wav"));
+                backgroundMusic.Play();
                 score += 10;
                 enemy3.Top = -1300;
                 int ranP = rnd.Next(1, 500);
@@ -161,8 +171,13 @@ namespace ZombieDefence
             }
             if ((enemy1.Bounds.IntersectsWith(player.Bounds)) || (enemy2.Bounds.IntersectsWith(player.Bounds)) || (enemy3.Bounds.IntersectsWith(player.Bounds)))
             {
-                mandie.Play();
+                System.Windows.Media.MediaPlayer backgroundMusic;
+                backgroundMusic = new System.Windows.Media.MediaPlayer();
+                backgroundMusic.Open(new Uri(Directory.GetCurrentDirectory() + "\\mandie.wav"));
+                backgroundMusic.Play();
                 gameOver();
+             
+
             }
         }
         private void enemyHit()
@@ -177,16 +192,7 @@ namespace ZombieDefence
         }
         private void gameOver()
         {
-            /*  timer1.Enabled = false;
-              MessageBox.Show("Your Score = " + score +);
-              score = 0;
-              scoretext.Text = "0";
-              enemy1.Top = -500;
-              enemy2.Top = -900;
-              enemy3.Top = -1300;
-              bullet.Top = -100;
-              bullet.Left = -100;
-              timer1.Enabled = true;*/
+
             timer1.Enabled = false;
             MessageBox.Show("Your Score = " + score );
             score = 0;
@@ -196,9 +202,7 @@ namespace ZombieDefence
             enemy3.Top = -1300;
             bullet.Top = -100;
             bullet.Left = -100;
-            this.Hide();
-            Form2 fr = new Form2();
-            fr.Show();
+            this.Close();
         }
     
             private void label1_Click(object sender, EventArgs e)
@@ -210,6 +214,11 @@ namespace ZombieDefence
         {
             score +=1;
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
    

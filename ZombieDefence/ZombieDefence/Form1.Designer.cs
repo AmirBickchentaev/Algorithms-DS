@@ -32,11 +32,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.scoretext = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
             this.enemy2 = new System.Windows.Forms.PictureBox();
             this.enemy3 = new System.Windows.Forms.PictureBox();
             this.bullet = new System.Windows.Forms.PictureBox();
             this.enemy1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).BeginInit();
@@ -69,11 +71,21 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ZombieDefence.Properties.Resources.exit;
+            this.pictureBox2.Location = new System.Drawing.Point(633, 20);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 28);
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // player
             // 
             this.player.BackColor = System.Drawing.Color.Transparent;
             this.player.Image = global::ZombieDefence.Properties.Resources.upper;
-            this.player.Location = new System.Drawing.Point(279, 591);
+            this.player.Location = new System.Drawing.Point(268, 591);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(100, 108);
             this.player.TabIndex = 4;
@@ -103,7 +115,7 @@
             // 
             this.bullet.BackColor = System.Drawing.Color.Transparent;
             this.bullet.Image = global::ZombieDefence.Properties.Resources.bullet;
-            this.bullet.Location = new System.Drawing.Point(301, 416);
+            this.bullet.Location = new System.Drawing.Point(294, 269);
             this.bullet.Name = "bullet";
             this.bullet.Size = new System.Drawing.Size(30, 34);
             this.bullet.TabIndex = 1;
@@ -125,6 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InfoText;
             this.ClientSize = new System.Drawing.Size(684, 711);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.scoretext);
             this.Controls.Add(this.player);
             this.Controls.Add(this.enemy2);
@@ -136,6 +149,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).EndInit();
@@ -156,6 +170,7 @@
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Label scoretext;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
